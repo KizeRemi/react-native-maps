@@ -1,8 +1,10 @@
 import React from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
+import { List, ListItem } from 'react-native-elements';
 
 const styles = StyleSheet.create({
   item: {
+    width: 200,
     fontSize: 32
   },
   itemVisited: {
@@ -16,7 +18,15 @@ const Item = props => {
     : styles.item;
   return (
     <TouchableOpacity onPress={props.onPress}>
-      <Text style={itemStyle}>{props.label}</Text>
+      <ListItem
+        roundAvatar
+        containerViewStyle={{width: 250, margin: 'auto', backgroundColor: 'transparent'}}
+        title={
+          <View style={itemStyle}>
+            <Text style={itemStyle}>{props.label}</Text>
+          </View>
+        }
+      />
     </TouchableOpacity>
   );
 };

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { List } from 'react-native-elements'
 import {
   Text,
   View,
@@ -27,7 +28,9 @@ const Places = props => (
   <View style={styles.root}>
     <Header onAdd={props.addItem} />
     <ScrollView contentContainerStyle={styles.content}>
-      <PlaceList places={props.places} onSelectItem={props.onToggleItem} />
+      <List>
+        <PlaceList places={props.places} onSelectItem={props.onToggleItem} />
+      </List>
     </ScrollView>
     <Footer onSelectFilter={props.updateFilter} selected={props.filter} />
   </View>

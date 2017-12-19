@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FormLabel, FormInput, Button } from 'react-native-elements';
 import {
   View,
   Text,
@@ -9,24 +10,8 @@ import {
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
-    flexDirection: "row"
+    display: 'flex',
   },
-  input: {
-    flex: 1,
-    margin: 20,
-    height: 40,
-    padding: 10,
-    backgroundColor: "#FFF",
-    borderBottomWidth: 1
-  },
-  button: {
-    flex: 0,
-    height: 50,
-    marginVertical: 20,
-    paddingTop: 15,
-    marginRight: 20
-  }
 });
 export default class Input extends Component {
   constructor() {
@@ -44,17 +29,19 @@ export default class Input extends Component {
   }
   render() {
     return (
-      <View style={styles.root}>
-        <TextInput
-          style={styles.input}
+      <View>
+        <FormInput
           placeholder="Enter a destination"
           underlineColorAndroid="transparent"
           onChangeText={text => this.setState({ text })}
           value={this.state.text}
         />
-        <TouchableOpacity style={styles.button} onPress={this.addHandler}>
-          <Text>Add</Text>
-        </TouchableOpacity>
+        <Button
+          raised
+          icon={{name: 'cached'}}
+          title='ADD' 
+          onPress={this.addHandler} 
+        />
       </View>
     );
   }
